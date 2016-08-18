@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Hadoop
 {
     //Mapper
-    public class NamespaceMapper : MapperBase
+    public class WordMapper : MapperBase
     {
         //Override the map method.
         public override void Map(string inputLine, MapperContext context)
@@ -27,7 +27,7 @@ namespace Hadoop
     }
 
     //Reducer
-    public class NamespaceReducer : ReducerCombinerBase
+    public class WordReducer : ReducerCombinerBase
     {
         //Accepts each key and count the occurrances
         public override void Reduce(string key, IEnumerable<string> values,
@@ -38,8 +38,8 @@ namespace Hadoop
         }
     }
 
-    //Our Namespace counter job
-    public class NamespaceCounterJob : HadoopJob<NamespaceMapper, NamespaceReducer>
+    //Our Word counter job
+    public class WordCounterJob : HadoopJob<WordMapper, WordReducer>
     {
         public override HadoopJobConfiguration Configure(ExecutorContext context)
         {

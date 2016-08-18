@@ -11,7 +11,8 @@ namespace Hadoop
         static void Main(string[] args)
         {
             var hadoop = Microsoft.Hadoop.MapReduce.Hadoop.Connect();
-            var result = hadoop.MapReduceJob.ExecuteJob<NamespaceCounterJob>();
+            var result = hadoop.MapReduceJob.ExecuteJob<WordCounterJob>();
+            Console.ReadKey();
         }
     }
 }
